@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FashionHub Boutique</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* Navbar styles */
+    .nav-link {
+      position: relative;
+      color: #1f3b57;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: orange;
+      transition: width 0.3s;
+    }
+    .nav-link:hover {
+      color: orange;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-outline-orange {
+      border: 2px solid orange;
+      color: orange;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-orange:hover {
+      background-color: orange;
+      color: white;
+    }
+
+    /* Hero section */
+    .hero {
+      background-color: #f8fbff;
+      padding: 80px 0;
+    }
+
+    .hero img {
+      max-height: 400px;
+    }
+   .shop-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 300px; /* controls the height of all image blocks */
+}
+
+.shop-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the image fills the box without distortion */
+  transition: transform 0.5s ease;
+}
+
+.shop-item:hover img {
+  transform: scale(1.1);
+}
+
+.shop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.shop-item:hover .shop-overlay {
+  opacity: 1;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.privacy-section {
+  background-color: #e6f2fb;
+  color: #333;
+}
+
+.privacy-section h2 {
+  color: #0d3b66;
+  font-weight: 700;
+}
+
+.privacy-section p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.privacy-section .bg-white {
+  color: #444;
+}
+
+.privacy-section h5 {
+  color: #0a2c4d;
+  font-weight: 600;
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm py-3" style="background-color: #e0f0ff;">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#" style="color: #1f3b57;">FashionHub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#boutiqueNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="boutiqueNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#terms">Terms</a></li>
+        <li class="nav-item"><a class="nav-link" href="#privacy">Privacy</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <div class="d-flex ms-lg-3 gap-2 mt-3 mt-lg-0">
+        <a href="#" class="btn btn-outline-warning">Sign In</a>
+        <a href="#" class="btn btn-outline-warning">Login</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Text Content -->
+      <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+        <h1 class="display-4 fw-bold text-dark">Welcome to FashionHub</h1>
+        <p class="lead text-muted">
+          Discover stylish, elegant, and affordable outfits crafted for every unique you. Embrace your fashion journey with us.
+        </p>
+        <a href="#" class="btn btn-outline-orange btn-lg mt-3">Shop Now</a>
+      </div>
+
+      <!-- Image Content -->
+      <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="200">
+        <img src="images/shoe1.png" alt="Fashion Transparent" class="img-fluid">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- About Section -->
+<section class="py-5" style="background-color: #ffffff;">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Image Side -->
+      <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" 
+             alt="Boutique Interior" class="img-fluid rounded shadow">
+      </div>
+
+      <!-- Text Side -->
+      <div class="col-md-6" data-aos="fade-left">
+        <h2 class="fw-bold mb-3 text-dark">About FashionHub</h2>
+        <p class="text-muted lead">
+          At FashionHub, we believe fashion is more than just clothing — it's a statement, a lifestyle, and a celebration of individuality.
+          Founded with love and creativity, our boutique curates high-quality, on-trend pieces that empower confidence and style.
+        </p>
+        <p class="text-muted">
+          Whether you're looking for something casual, elegant, or bold — we have collections that blend comfort and class for all occasions.
+          Step into our world and let your outfit tell your story.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Our Shop Section -->
+<section id="shop" class="py-5" style="background-color: #f8fbff;">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-dark">Our Shop</h2>
+      <p class="text-muted">Browse our latest arrivals – handpicked fashion just for you.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Shop Item Template -->
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in">
+        <div class="shop-item shadow">
+          <img src="images/dress1.png" 
+               class="img-fluid" alt="Fashion 1">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="shop-item shadow">
+           <img src="images/handbag1.png" 
+               class="img-fluid" alt="Fashion 3">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="shop-item shadow">
+            <img src="images/handbag2.png" 
+               class="img-fluid" alt="Fashion 4">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in">
+        <div class="shop-item shadow">
+            <img src="images/laptopbag1.png"  
+               class="img-fluid" alt="Fashion 5">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="shop-item shadow">
+            <img src="images/pullover2.png"  
+               class="img-fluid" alt="Fashion 7">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="shop-item shadow">
+            <img src="images/trouser1.png" 
+               class="img-fluid" alt="Fashion 8">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in">
+        <div class="shop-item shadow">
+          <img src="images/trouser2.png" 
+               class="img-fluid" alt="Fashion 9">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="shop-item shadow">
+          <img src="images/pullover1.png" 
+               class="img-fluid" alt="Fashion 10">
+          <div class="shop-overlay">View Product</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQs Section -->
+<section id="faqs" class="py-5" style="background-color: #ffffff;">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-dark">Frequently Asked Questions</h2>
+      <p class="text-muted">Find quick answers to common questions about our boutique, orders, and services.</p>
+    </div>
+
+    <div class="accordion" id="faqAccordion">
+
+      <!-- FAQ Item 1 -->
+      <div class="accordion-item" data-aos="fade-up">
+        <h2 class="accordion-header" id="faqHeadingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+            What sizes do you offer?
+          </button>
+        </h2>
+        <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We offer sizes ranging from XS to XXL. Each product page includes a size chart to help you find the perfect fit.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="accordion-header" id="faqHeadingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+            What is your return policy?
+          </button>
+        </h2>
+        <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We accept returns within 14 days of delivery. Items must be unused, with tags and in original packaging. Visit our Returns page to get started.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="accordion-header" id="faqHeadingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+            Do you ship internationally?
+          </button>
+        </h2>
+        <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! We offer international shipping to most countries. Shipping costs and delivery times vary based on your location.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+        <h2 class="accordion-header" id="faqHeadingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+            What payment methods do you accept?
+          </button>
+        </h2>
+        <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We accept credit/debit cards (Visa, Mastercard), PayPal, and mobile money (M-Pesa). All payments are securely processed.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="accordion-header" id="faqHeadingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+            How long does delivery take?
+          </button>
+        </h2>
+        <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Orders within Kenya are delivered in 2–4 business days. International orders may take 7–14 business days depending on location.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Terms and Conditions Section -->
+<section id="terms" class="py-5" style="background-color: #f0f8ff;">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-dark">Terms & Conditions</h2>
+      <p class="text-muted">Please read our terms carefully before using our services.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
+          <h5 class="fw-bold">1. Orders and Payments</h5>
+          <p class="text-muted">
+            All prices listed are in KES and inclusive of applicable taxes. Orders are processed once payment is confirmed.
+            We accept Visa, Mastercard, PayPal, and M-Pesa. Prices and availability may change without notice.
+          </p>
+
+          <h5 class="fw-bold mt-4">2. Shipping & Delivery</h5>
+          <p class="text-muted">
+            Local deliveries take 2–4 business days. International shipping times vary. Delivery delays due to customs or
+            unforeseen issues are not our responsibility once the item has shipped.
+          </p>
+
+          <h5 class="fw-bold mt-4">3. Returns & Refunds</h5>
+          <p class="text-muted">
+            You may return unused items within 14 days of delivery for a refund or exchange. The item must be in original
+            packaging with tags intact. Refunds are issued to the original payment method.
+          </p>
+
+          <h5 class="fw-bold mt-4">4. Use of Content</h5>
+          <p class="text-muted">
+            All content on this website including images, designs, and text is owned by FashionHub. Reproduction without
+            permission is prohibited. You may not use our content for commercial purposes without written consent.
+          </p>
+
+          <h5 class="fw-bold mt-4">5. Legal Disclaimer</h5>
+          <p class="text-muted">
+            We are not liable for any indirect damages arising from your use of this site. By using this site, you agree
+            to these terms. We reserve the right to update our terms at any time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy Policy Section -->
+<section id="privacy" class="py-5" style="background-color: #e6f2fb; font-family: 'Poppins', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-dark">Privacy Policy</h2>
+      <p class="text-muted">Your privacy is important to us. Here's how we protect and handle your data.</p>
+    </div>
+
+    <div class="col-lg-10 mx-auto bg-white p-4 rounded shadow-sm">
+
+      <div data-aos="fade-right">
+        <h5 class="fw-bold text-primary">1. Data Collection</h5>
+        <p class="text-muted">
+          We collect personal information such as your name, email, and shipping address when you place orders or register.
+        </p>
+      </div>
+
+      <div class="mt-4" data-aos="fade-right">
+        <h5 class="fw-bold text-primary">2. Use of Information</h5>
+        <p class="text-muted">
+          Your data is only used for order fulfillment, customer support, and sending promotional offers (with your permission).
+        </p>
+      </div>
+
+      <div class="mt-4" data-aos="fade-right">
+        <h5 class="fw-bold text-primary">3. Data Security</h5>
+        <p class="text-muted">
+          All transactions are SSL-encrypted and stored securely. We never share your data without your consent.
+        </p>
+      </div>
+
+      <div class="mt-4" data-aos="fade-right">
+        <h5 class="fw-bold text-primary">4. Your Rights</h5>
+        <p class="text-muted">
+          You can request to access, edit, or delete your data anytime by contacting us through our support page.
+        </p>
+      </div>
+
+      <div class="mt-4" data-aos="fade-right">
+        <h5 class="fw-bold text-primary">5. Policy Updates</h5>
+        <p class="text-muted">
+          We may update this policy occasionally. Changes will be posted on this page with the updated date.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Us Section -->
+<section id="contact" class="py-5" style="background-color: #f9f9f9; font-family: 'Poppins', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="fw-bold text-dark">Contact Us</h2>
+      <p class="text-muted">Have questions or feedback? We'd love to hear from you.</p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Contact Form -->
+      <div class="col-md-6" data-aos="fade-right">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Your Name">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" placeholder="you@example.com">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Your Message</label>
+            <textarea class="form-control" rows="4" placeholder="Write your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-primary px-4">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Optional Map or Info -->
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="bg-white p-4 rounded shadow-sm h-100">
+          <h5 class="fw-bold">Visit Our Boutique</h5>
+          <p class="text-muted mb-1">FashionTrack Boutique</p>
+          <p class="text-muted mb-1">123 Style Street, Nairobi, Kenya</p>
+          <p class="text-muted mb-3">Email: hello@fashiontrack.com | Phone: +254 712 345678</p>
+          <div class="ratio ratio-16x9 rounded overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3..."
+              style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="text-white pt-4 pb-3" style="background-color: #0d3b66; font-family: 'Poppins', sans-serif;">
+  <div class="container text-center text-md-start">
+    <div class="row">
+      <!-- About -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">FashionTrack</h5>
+        <p class="text-light small">Where style meets confidence. Shop the latest fashion with quality and care.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold">Quick Links</h6>
+        <ul class="list-unstyled text-light small">
+          <li><a href="#home" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-light text-decoration-none">About</a></li>
+          <li><a href="#shop" class="text-light text-decoration-none">Shop</a></li>
+          <li><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold">Follow Us</h6>
+        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-light"><i class="fab fa-pinterest"></i></a>
+      </div>
+    </div>
+    <div class="text-center text-light small border-top pt-3 mt-3">
+      &copy; 2025 FashionTrack Boutique. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+
+     AOS.init({
+    duration: 1000,
+    once: false, // allow animation to repeat on scroll
+    mirror: true // animate when scrolling up too
+  });
+</script>
+
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
